@@ -9,11 +9,11 @@
 <body>
   <main class="player-page">
     <section class="player-shell">
-      <video id="video" autoplay muted playsinline></video>
+      <video id="video" autoplay  playsinline controls></video>
 
       <div class="top-controls">
         <button id="controlsButton" class="glass-button" type="button" aria-label="Afficher les contrôles">
-          ⚙
+          
         </button>
 
         <div id="controlsPanel" class="controls-panel hidden">
@@ -26,12 +26,12 @@
         </div>
       </div>
 
-      <div id="statusBar" class="status-bar">
+      <div id="statusBar" class="status-bar" style="visibility: hidden;">
         <span id="statusText">Chargement du flux...</span>
       </div>
 
       <details class="debug">
-        <summary>Journal</summary>
+        <summary></summary>
         <pre id="log"></pre>
 
         <div class="debug-grid">
