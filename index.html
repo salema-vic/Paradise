@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ParaTV Playlist Player</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="player-page">
+    <section class="player-shell">
+      <video id="video" autoplay muted playsinline></video>
+
+      <div class="top-controls">
+        <button id="controlsButton" class="glass-button" type="button" aria-label="Afficher les contrôles">
+          ⚙
+        </button>
+
+        <div id="controlsPanel" class="controls-panel hidden">
+          <select id="channelSelect" title="Chaîne"></select>
+          <button id="playButton" type="button">Pause</button>
+          <button id="muteButton" type="button">Activer le son</button>
+          <button id="reloadButton" type="button">Recharger</button>
+          <button id="reloadPlaylistButton" type="button">Recharger playlist</button>
+          <span id="stateBadge" class="badge">Initialisation</span>
+        </div>
+      </div>
+
+      <div id="statusBar" class="status-bar">
+        <span id="statusText">Chargement du flux...</span>
+      </div>
+
+      <details class="debug">
+        <summary>Journal</summary>
+        <pre id="log"></pre>
+
+        <div class="debug-grid">
+          <div>
+            <strong>Playlist principale</strong>
+            <code id="playlistLabel">—</code>
+          </div>
+          <div>
+            <strong>Chaîne sélectionnée</strong>
+            <span id="channelLabel">—</span>
+          </div>
+          <div>
+            <strong>Flux utilisé</strong>
+            <code id="streamLabel">—</code>
+          </div>
+          <div>
+            <strong>Sélection initiale</strong>
+            <span id="startupSelectionLabel">—</span>
+          </div>
+          <div>
+            <strong>Dernier chargement</strong>
+            <span id="lastLoad">—</span>
+          </div>
+          <div>
+            <strong>Expiration estimée</strong>
+            <span id="expiresAt">—</span>
+          </div>
+          <div>
+            <strong>Prochain refresh</strong>
+            <span id="nextRefresh">—</span>
+          </div>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

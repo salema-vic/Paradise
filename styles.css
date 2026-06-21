@@ -1,0 +1,224 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: #000;
+  overflow: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.player-page,
+.player-shell {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+}
+
+video {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  object-fit: fill;
+  background: #000;
+}
+
+.top-controls {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 20;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.glass-button,
+.controls-panel button,
+.controls-panel select {
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(0, 0, 0, .42);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  font-weight: 800;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, .35);
+}
+
+.glass-button {
+  width: 48px;
+  height: 48px;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.controls-panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  max-width: min(760px, calc(100vw - 86px));
+  padding: 8px;
+  border-radius: 22px;
+  background: rgba(0, 0, 0, .28);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.controls-panel.hidden {
+  display: none;
+}
+
+.controls-panel button,
+.controls-panel select {
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+.controls-panel select {
+  max-width: min(320px, calc(100vw - 120px));
+}
+
+.controls-panel option {
+  color: #111;
+}
+
+.glass-button:hover,
+.controls-panel button:hover,
+.controls-panel select:hover {
+  background: rgba(255, 255, 255, .18);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 39px;
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: #fff;
+  background: rgba(55, 65, 81, .7);
+  font-weight: 800;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.badge.ok {
+  background: rgba(6, 95, 70, .76);
+}
+
+.badge.warn {
+  background: rgba(146, 64, 14, .76);
+}
+
+.badge.error {
+  background: rgba(153, 27, 27, .76);
+}
+
+.status-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 15;
+  transform: translateX(-50%);
+  max-width: calc(100vw - 32px);
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(0, 0, 0, .38);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  pointer-events: none;
+  transition: opacity .25s ease;
+}
+
+.status-bar.hidden {
+  opacity: 0;
+}
+
+.debug {
+  position: fixed;
+  left: 14px;
+  bottom: 14px;
+  z-index: 25;
+  max-width: min(900px, calc(100vw - 28px));
+  max-height: 52vh;
+  overflow: auto;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, .45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.debug summary {
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.debug pre {
+  max-height: 220px;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: #d1d5db;
+}
+
+.debug-grid {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.debug-grid > div {
+  display: grid;
+  gap: 4px;
+}
+
+.debug-grid strong {
+  color: #fff;
+}
+
+.debug-grid code,
+.debug-grid span {
+  color: #d1d5db;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+  .top-controls {
+    top: 10px;
+    right: 10px;
+  }
+
+  .glass-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .controls-panel {
+    max-width: calc(100vw - 72px);
+  }
+
+  .controls-panel button,
+  .controls-panel select,
+  .badge {
+    font-size: 12px;
+  }
+
+  .debug {
+    left: 10px;
+    bottom: 10px;
+  }
+}
